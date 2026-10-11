@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search cities and explore current weather conditions and a five-day forecast.">
+    <title>Weatherly | Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <a href="#" class="brand" aria-label="Weatherly home">
+            <span class="brand-symbol" aria-hidden="true">☀</span>
+            Weatherly<span class="brand-dot">.</span>
+        </a>
+        <span class="live-label">
+            <span class="live-dot" aria-hidden="true"></span>
+            Live weather
+        </span>
+    </header>
+
+    <main class="container">
+        <section class="intro">
+            <p class="eyebrow">YOUR WEATHER, AT A GLANCE</p>
+            <h1>Understand your <span>sky.</span></h1>
+            <p class="intro-text">
+                Search any city to explore current conditions and the forecast.
+            </p>
+        </section>
+
+        <section class="search-panel" aria-label="Search for a city">
+            <form id="search-form" class="search-form">
+                <label class="visually-hidden" for="city-input">City name</label>
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input
+                    id="city-input"
+                    name="city"
+                    type="search"
+                    placeholder="Search a city, e.g. Chennai"
+                    autocomplete="off"
+                    maxlength="100"
+                    required
+                >
+                <button id="search-button" class="primary-button" type="submit">
+                    Search
+                </button>
+            </form>
+            <p class="search-hint">Try Chennai, London, Tokyo, or New York.</p>
+        </section>
+
+        <div id="status-message" class="status-message" role="status"
+             aria-live="polite" hidden></div>
+
+        <section id="weather-content" hidden aria-label="Weather results">
+            <div class="location-heading">
+                <div>
+                    <p class="eyebrow">CURRENT CONDITIONS</p>
+                    <h2 id="location-name">City</h2>
+                    <p id="location-details" class="muted"></p>
+                </div>
+                <p id="updated-time" class="updated-time"></p>
+            </div>
+
+            <section class="current-weather" aria-label="Current weather">
+                <div class="current-main">
+                    <div id="weather-icon" class="weather-icon" aria-hidden="true">☀️</div>
+                    <div>
+                        <p id="weather-description" class="weather-description">Clear sky</p>
+                        <p class="temperature">
+                            <span id="temperature">--</span><span class="degree">°C</span>
+                        </p>
+                        <p id="feels-like" class="feels-like">Feels like --°C</p>
+                    </div>
+                </div>
+
+                <div class="weather-divider"></div>
+
+                <div class="weather-details">
+                    <article class="detail-card">
+                        <span class="detail-icon" aria-hidden="true">💧</span>
+                        <div>
+                            <p>Humidity</p>
+                            <strong id="humidity">--%</strong>
+                        </div>
+                    </article>
+
+                    <article class="detail-card">
+                        <span class="detail-icon" aria-hidden="true">💨</span>
+                        <div>
+                            <p>Wind speed</p>
+                            <strong id="wind-speed">-- km/h</strong>
+                        </div>
+                    </article>
+
+                    <article class="detail-card">
+                        <span class="detail-icon" aria-hidden="true">🌧️</span>
+                        <div>
+                            <p>Precipitation</p>
+                            <strong id="precipitation">-- mm</strong>
+                        </div>
+                    </article>
+
+                    <article class="detail-card">
+                        <span class="detail-icon" aria-hidden="true">🌡️</span>
+                        <div>
+                            <p>Today's range</p>
+                            <strong id="temperature-range">--° / --°</strong>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="forecast-section" aria-labelledby="forecast-heading">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">PLAN AHEAD</p>
+                        <h2 id="forecast-heading">5-day forecast</h2>
+                    </div>
+                    <span class="forecast-caption">Local dates</span>
+                </div>
+                <div id="forecast-list" class="forecast-grid"></div>
+            </section>
+
+            <p class="data-credit">
+                Weather data provided by
+                <a href="https://open-meteo.com/" target="_blank"
+                   rel="noopener noreferrer">Open-Meteo</a>.
+            </p>
+        </section>
+
+        <section id="welcome-state" class="welcome-state">
+            <div class="welcome-art" aria-hidden="true">
+                <span class="sun-art">☀</span>
+                <span class="cloud-art">☁</span>
+            </div>
+            <h2>Your next forecast starts here</h2>
+            <p>Enter a city above to discover its current weather and five-day outlook.</p>
+        </section>
+
+        <noscript>
+            <p class="noscript-message">
+                This dashboard requires JavaScript. Please enable JavaScript in your browser.
+            </p>
+        </noscript>
+    </main>
+
+    <footer class="footer">
+        <p>Weatherly · Built with HTML, CSS, Fetch API and async/await</p>
+    </footer>
+</body>
+</html>
